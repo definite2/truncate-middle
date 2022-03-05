@@ -11,6 +11,7 @@ const useElementWidth = (ref) => {
       ref?.current?.getBoundingClientRect().width *
         (window.visualViewport?.scale || 1) || 0
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref?.current]);
 
   const [width, setWidth] = useState(0);
@@ -31,6 +32,7 @@ const useElementWidth = (ref) => {
 
   useEffect(() => {
     setWidth(getWidth());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref?.current]);
 
   useEffect(() => {
@@ -39,6 +41,7 @@ const useElementWidth = (ref) => {
     // eslint-disable-next-line consistent-return
     return () => {
       if (!ref?.current) return;
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       elObserver.unobserve(ref?.current);
     };
   });
