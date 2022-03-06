@@ -9,7 +9,9 @@ function App() {
         <Button
           key={`${button.text}_${index}`}
           width={button.width}
+          height={button.height}
           originalLongText={button.text}
+          font={button.font}
         />
       ))}
     </div>
