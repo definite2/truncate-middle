@@ -13,7 +13,8 @@ const useElementWidth = (ref) => {
       ref?.current?.getBoundingClientRect().width *
         (window.visualViewport?.scale || 1) || 0
     );
-  }, [ref?.current]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const elObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
@@ -24,7 +25,7 @@ const useElementWidth = (ref) => {
   });
   useLayoutEffect(() => {
     setWidth(getWidth());
-  }, [ref?.current]);
+  }, [getWidth]);
 
   useLayoutEffect(() => {
     if (!ref?.current) return;
@@ -32,7 +33,8 @@ const useElementWidth = (ref) => {
     return () => {
       elObserver.disconnect();
     };
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return width;
 };
 
