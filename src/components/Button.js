@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { useElementWidth, useFitCharacterNumber } from '../hooks';
 import { truncateFromMiddle } from '../utils';
 
-const Button = ({ originalLongText, width, font, height }) => {
+const Button = ({ originalLongText, width, font }) => {
   const btnRef = React.useRef();
   const [buttonText, setButtonText] = React.useState(originalLongText);
   const buttonWidth = useElementWidth(btnRef);
@@ -11,7 +11,7 @@ const Button = ({ originalLongText, width, font, height }) => {
     maxWidth: buttonWidth,
     middleChars: '...',
   });
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (btnRef && btnRef.current) {
       if (buttonWidth && charNumber && textWidth) {
         if (textWidth > buttonWidth)
