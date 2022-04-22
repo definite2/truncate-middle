@@ -1,4 +1,4 @@
-# Calculating Number of Characters Fit Into Button Element
+# Calculating Number of Characters Fit Into HTML Element
 
 This project includes two custom hooks to calculate the maximum number of characters that can fit into a given html element. 
 
